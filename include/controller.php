@@ -61,9 +61,9 @@ class CinemaController {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function adicionarColaborador($nome, $cpf, $sexo, $dataNasc, $endereco, $telefone, $usuario, $senha, $tipo) {
-        $stmt = $this->pdo->prepare("INSERT INTO COLABORADORES (NOME, CPF, SEXO, DATA_NASC, ENDERECO, TELEFONE, USUARIO, SENHA, TIPO) 
-                                      VALUES (:nome, :cpf, :sexo, :dataNasc, :endereco, :telefone, :usuario, :senha, :tipo)");
+    public function adicionarColaborador($nome, $cpf, $sexo, $dataNasc, $endereco, $telefone, $usuario, $senha, $admin) {
+        $stmt = $this->pdo->prepare("INSERT INTO COLABORADORES (NOME, CPF, SEXO, DATA_NASC, ENDERECO, TELEFONE, USUARIO, SENHA, ADMIN) 
+                                      VALUES (:nome, :cpf, :sexo, :dataNasc, :endereco, :telefone, :usuario, :senha, :admin)");
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':cpf', $cpf);
         $stmt->bindParam(':sexo', $sexo);
@@ -72,13 +72,13 @@ class CinemaController {
         $stmt->bindParam(':telefone', $telefone);
         $stmt->bindParam(':usuario', $usuario);
         $stmt->bindParam(':senha', $senha);
-        $stmt->bindParam(':tipo', $tipo);
+        $stmt->bindParam(':admin', $admin);
         return $stmt->execute();
     }
 
-    public function atualizarColaborador($id, $nome, $cpf, $sexo, $dataNasc, $endereco, $telefone, $usuario, $senha, $tipo) {
+    public function atualizarColaborador($id, $nome, $cpf, $sexo, $dataNasc, $endereco, $telefone, $usuario, $senha, $admin) {
         $stmt = $this->pdo->prepare("UPDATE COLABORADORES SET NOME = :nome, CPF = :cpf, SEXO = :sexo, DATA_NASC = :dataNasc, 
-                                      ENDERECO = :endereco, TELEFONE = :telefone, USUARIO = :usuario, SENHA = :senha, TIPO = :tipo 
+                                      ENDERECO = :endereco, TELEFONE = :telefone, USUARIO = :usuario, SENHA = :senha, ADMIN = :admin 
                                       WHERE ID = :id");
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':nome', $nome);
@@ -89,7 +89,7 @@ class CinemaController {
         $stmt->bindParam(':telefone', $telefone);
         $stmt->bindParam(':usuario', $usuario);
         $stmt->bindParam(':senha', $senha);
-        $stmt->bindParam(':tipo', $tipo);
+        $stmt->bindParam(':admin', $admin);
         return $stmt->execute();
     }
 

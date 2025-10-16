@@ -48,7 +48,7 @@ include 'include/header.php';
             </tbody>
         </table>
     </section>
-    <form>
+    <form method="POST">
         <h2>Adicionar Evento</h2>
         <label for="descricao">Descrição:</label>
         <input type="text" id="descricao" name="descricao" required>

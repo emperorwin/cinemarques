@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } catch (PDOException $e) {
             echo 'Erro ao adicionar cliente: ' . htmlspecialchars($e->getMessage());
         }
+        header('Location: clientes.php');
     }
-    header('Location: clientes.php');
     exit;
 }
 include 'include/header.php';
@@ -46,7 +46,7 @@ include 'include/header.php';
         </table>
     </section>
 
-    <form>
+    <form method="POST">
         <h2>Adicionar Cliente</h2>
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>

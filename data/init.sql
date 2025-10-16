@@ -9,7 +9,7 @@ ENDERECO TEXT NOT NULL,
 TELEFONE TEXT NOT NULL,
 USUARIO TEXT UNIQUE NOT NULL,
 SENHA TEXT NOT NULL,
-TIPO TEXT NOT NULL CHECK(TIPO IN ('admin', 'func'))
+ADMIN BOOLEAN DEFAULT 0
 );
 
 CREATE TABLE EVENTOS(
@@ -49,10 +49,10 @@ UNIQUE (ID_EVENTO, ID_CADEIRA) -- apenas uma reserva, por cadeira, por evento
 
 -- Dados de demonstração
 
-INSERT INTO COLABORADORES (NOME, CPF, SEXO, DATA_NASC, ENDERECO, TELEFONE, USUARIO, SENHA, TIPO) VALUES
-('Admin', '00000000000', 'M', '2000-01-01', 'Rua Admin, 123', '9999999999', 'admin', 'admin', 'admin'),
-('Funcionario', '11111111111', 'F', '2001-02-02', 'Rua Func, 456', '8888888888', 'func', 'func', 'func'),
-('Funcionario2', '22222222222', 'M', '2002-03-03', 'Rua Func, 789', '7777777777', 'func2', 'func2', 'func');
+INSERT INTO COLABORADORES (NOME, CPF, SEXO, DATA_NASC, ENDERECO, TELEFONE, USUARIO, SENHA, ADMIN) VALUES
+('Admin', '00000000000', 'M', '2000-01-01', 'Rua Admin, 123', '9999999999', 'admin', 'admin', 1),
+('Funcionario', '11111111111', 'F', '2001-02-02', 'Rua Func, 456', '8888888888', 'func', 'func', 0),
+('Funcionario2', '22222222222', 'M', '2002-03-03', 'Rua Func, 789', '7777777777', 'func2', 'func2', 0);
 
 INSERT INTO CLIENTE (NOME, TEL) VALUES
 ('Maria', '1234567890'),
