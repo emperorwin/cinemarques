@@ -42,7 +42,9 @@ include 'include/header.php';
             <tbody>
                 <?php
                 $reservas = $controller->listarReservas();
+                $letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
                 foreach ($reservas as $row) {
+                    $letraFileira = $letras[$row['FILEIRA'] - 1];
                     echo '<tr>';
                     echo '<td>' . htmlspecialchars($row['ID']) . '</td>';
                     echo '<td>' . htmlspecialchars($row['DATA']) . '</td>';
@@ -50,7 +52,7 @@ include 'include/header.php';
                     echo '<td>' . htmlspecialchars($row['CLIENTE_NOME']) . '</td>';
                     echo '<td>' . htmlspecialchars($row['COLABORADOR_NOME']) . '</td>';
                     echo '<td>' . htmlspecialchars($row['EVENTO_DESCRICAO']) . '</td>';
-                    echo '<td>Fileira ' . htmlspecialchars($row['FILEIRA']) . ' - Assento ' . htmlspecialchars($row['NUM']) . '</td>';
+                    echo '<td>' . htmlspecialchars($letraFileira) . '' . htmlspecialchars($row['NUM']) . '</td>';
                     echo '</tr>';
                 }
                 ?>
@@ -96,7 +98,7 @@ include 'include/header.php';
         </select>
         
         <label>Cadeira:</label>
-        <table style="border-collapse: collapse; margin: 20px auto;">
+        <table style="border-collapse: collapse;">
             <tbody>
                 <?php
                 $cadeiras = $controller->listarCadeiras();
