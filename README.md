@@ -1,5 +1,5 @@
 # Cinemarques
-Site demonstrativo para gerenciamento de filmes, reservas, e assentos em cinema.
+Site demonstrativo/educacional para gerenciamento de filmes, reservas, e assentos em cinema.
 
 ## Setup
 1. Inicie o servidor de desenvolvimento PHP:
